@@ -12,6 +12,13 @@ namespace Trips.Controllers
             this._service = service;
         }
 
+        [HttpGet("[action]")]
+        public IActionResult GetTrips()
+        {
+            var allTrips = _service.GetAllTrips();
+            return Ok(allTrips);
+        }
+
         [HttpPost("AddTrip")]
         public IActionResult AddTrip([FromBody]Trip trip)
         {
